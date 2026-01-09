@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Name</title>
+
+  <!-- Tufte CSS -->
+  <link rel="stylesheet" href="https://edwardtufte.github.io/tufte-css/tufte.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* -------------------------
+       Dark mode variables
+       ------------------------- */
+
+    :root {
+      --bg-color: #fffff8;
+      --text-color: #111;
+      --link-color: #111;
+      --muted-color: #555;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #111;
+        --text-color: #eaeaea;
+        --link-color: #eaeaea;
+        --muted-color: #aaa;
+      }
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    a {
+      color: var(--link-color);
+    }
+
+    .subtitle,
+    footer,
+    .marginnote {
+      color: var(--muted-color);
+    }
+
+    /* Optional manual toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="theme-toggle" onclick="toggleTheme()">☾ / ☀</div>
+
+  <article>
+
+    <h1>Your Name</h1>
+    <p class="subtitle">Designer · Developer · Researcher</p>
+
+    <section>
+      <p>
+        I am a person who values clarity, restraint, and depth.
+        This site is intentionally minimal, inspired by Tufte’s
+        approach to information and typography.
+      </p>
+
+      <p>
+        My work focuses on thoughtful design, simple systems,
+        and ideas that benefit from careful explanation rather
+        than visual noise.
+      </p>
+    </section>
+
+    <section>
+      <h2>Work</h2>
+
+      <p>
+        <strong>Project One</strong><br>
+        A short description of the work and its intent.
+        <span class="marginnote">
+          2024 · Role · Tools
+        </span>
+      </p>
+
+      <p>
+        <strong>Project Two</strong><br>
+        Another concise explanation with emphasis on outcomes.
+      </p>
+    </section>
+
+    <section>
+      <h2>Writing</h2>
+
+      <p>
+        <a href="#">Essay Title One</a><br>
+        An exploration of an idea worth expanding.
+      </p>
+
+      <p>
+        <a href="#">Essay Title Two</a><br>
+        Notes on design, systems, or observation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+
+      <p>
+        Email: <a href="mailto:you@example.com">you@example.com</a><br>
+        GitHub: <a href="https://github.com/username">github.com/username</a><br>
+        LinkedIn: <a href="#">linkedin.com/in/username</a>
+      </p>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Your Name</p>
+    </footer>
+
+  </article>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Optional manual dark-mode toggle
+    function toggleTheme() {
+      const root = document.documentElement;
+      const isDark = root.dataset.theme === "dark";
+
+      if (isDark) {
+        root.dataset.theme = "light";
+        root.style.setProperty('--bg-color', '#fffff8');
+        root.style.setProperty('--text-color', '#111');
+        root.style.setProperty('--link-color', '#111');
+        root.style.setProperty('--muted-color', '#555');
+      } else {
+        root.dataset.theme = "dark";
+        root.style.setProperty('--bg-color', '#111');
+        root.style.setProperty('--text-color', '#eaeaea');
+        root.style.setProperty('--link-color', '#eaeaea');
+        root.style.setProperty('--muted-color', '#aaa');
+      }
+    }
+  </script>
+</body>
+</html>
+
